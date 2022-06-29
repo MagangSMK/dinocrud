@@ -6,7 +6,7 @@ include_once("../../config/config.php");
 	<title>Add Users</title>
 </head>
  
-<body>
+<body bgcolor="#99a9c8">
 	<a href="../../login/homepage.php">Go to Home</a>
 	<br><br>
  

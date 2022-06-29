@@ -3,10 +3,13 @@ include_once("../../config/config.php");
 ?>
 <html>
 <head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Add Users</title>
 </head>
  
-<body>
+<body bgcolor="#99a9c8">
 	<a href="../../login/homepage.php">Go to Home</a>
 	<br><br>
  
