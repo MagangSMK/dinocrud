@@ -309,7 +309,7 @@ if(isset($_GET['cari2'])){
 <a
             href="../login/logout.php"
             type="submit"
-            class="inline-block px-3 py-2 bg-red-700 text-white uppercase rounded shadow-md hover:bg-red-800 hover:shadow-lg focus:bg-red-800 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-900 active:shadow-lg"
+            class="inline-block px-3 py-2 bg-black text-white uppercase rounded shadow-md hover:bg-black hover:shadow-lg focus:bg-black focus:shadow-lg focus:outline-none focus:ring-0 active:bg-black active:shadow-lg"
             data-mdb-ripple="true"
             data-mdb-ripple-color="light">
             Log Out

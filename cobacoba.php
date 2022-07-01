@@ -1,36 +1,117 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="public/css/style.css">
+<?php
+// include database connection file
+include_once("config/config.php");
+ 
+// Check if form is submitted for user update, then redirect to homepage after update
+if(isset($_POST['update']))
+{	
+	$kodecucian = $_POST['kodecucian'];
+		$jumlahpotong = $_POST['jumlahpotong'];
+		$jeniscucian = $_POST['jeniscucian'];
+		$berat = $_POST['berat_kg'];
+		$harga = $_POST['harga'];
+	// update user data
+	$result = mysqli_query($mysqli, "UPDATE cucian SET kodecucian='$kodecucian',jumlahpotong='$jumlahpotong',jeniscucian='$jeniscucian',berat_kg='$berat',harga='$harga' WHERE kodecucian=$kodecucian");
+	
+	// Redirect to homepage to display updated user in list
+	header("Location:../../login/homepage.php");
+}
+?>
+<?php
+// Display selected user data based on id
+// Getting id from url
+$kodecucian = $_GET['kodecucian'];
+ 
+// Fetech user data based on id
+$result = mysqli_query($mysqli, "SELECT * FROM cucian WHERE kodecucian=$kodecucian");
+ 
+while($user_data = mysqli_fetch_array($result))
+{
+      $kodecucian = $user_data['kodecucian'];
+		$jumlahpotong =$user_data['jumlahpotong'];
+		$jeniscucian = $user_data['jeniscucian'];
+		$berat = $user_data['berat_kg'];
+		$harga = $user_data['harga'];
+}
+?>
+<html>
+<head>	
+	<title>Edit User Data</title>
+	<link rel="stylesheet" href="public/css/style.css">
 </head>
+ 
 <body>
-<aside class="w-64" aria-label="Sidebar">
-   <div class="overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-red-800">
-      <ul class="space-y-2">
-         <li>
-            <a href="public/kasir/kasir.php" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-               <svg class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg>
-               <span class="ml-3">Dashboard</span>
-            </a>
-         </li>
-         <li>
-            <a href="#" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-               <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
-               <span class="flex-1 ml-3 whitespace-nowrap">Users</span>
-            </a>
-         </li>
-         <li>
-            <a href="#" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-               <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z" clip-rule="evenodd"></path></svg>
-               <span class="flex-1 ml-3 whitespace-nowrap">Products</span>
-            </a>
-         </li>
-      </ul>
-   </div>
-</aside>
+	<form name="update" method="post" action="edit.php">
+		
+		<div class="bg-green-200 py-10 px-10 min-h-screen ">
+		
+  <!--   tip; mx-auto -- jagab ilusti keskele  -->
+  <div class="bg-white p-10 md:w-3/4 lg:w-1/2 mx-auto">
+
+      <!--       flex - asjad korvuti, nb! flex-1 - element kogu ylejaanud laius -->
+      <div class="flex items-center mb-5">
+        <!--         tip - here neede inline-block , but why? -->
+        <label for="kodecucian" class="inline-block w-20 mr-6 text-right 
+                                 font-bold text-gray-600">Kode Cucian</label>
+        <input type="text"  disabled name="kodecucian" placeholder="...." 
+               class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400 
+                      text-gray-600 placeholder-gray-400
+                      outline-none"  value=<?php echo $kodecucian;?>>
+      </div>
+
+      <div class="flex items-center mb-10">
+        <label for="jumlahpotong" class="inline-block w-20 mr-6 text-right
+                                    font-bold text-gray-600">Jumlah Potong</label>
+        <input type="text"  name="jumlahpotong" placeholder="...." 
+        class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400 
+                      text-gray-600 placeholder-gray-400
+                      outline-none" value=<?php echo $jumlahpotong;?>> <!-- check other class spec upper section -->
+      </div>
+
+      <div class="flex items-center mb-5">
+        <!--         tip - here neede inline-block , but why? -->
+        <label for="jeniscucian" class="inline-block w-20 mr-6 text-right 
+                                 font-bold text-gray-600">Jenis Cucian</label>
+        <input type="text"  name="jeniscucian" placeholder="...." 
+               class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400 
+                      text-gray-600 placeholder-gray-400
+                      outline-none" value=<?php echo $jeniscucian;?>>
+      </div>
+
+      <div class="flex items-center mb-5">
+        <!--         tip - here neede inline-block , but why? -->
+        <label for="berat_kg" class="inline-block w-20 mr-6 text-right 
+                                 font-bold text-gray-600">Berat Kg</label>
+        <input type="text"  name="berat_kg" placeholder="...." 
+               class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400 
+                      text-gray-600 placeholder-gray-400
+                      outline-none"value=<?php echo $berat;?>>
+      </div>
+
+      <div class="flex items-center mb-5">
+        <!--         tip - here neede inline-block , but why? -->
+        <label for="harga" class="inline-block w-20 mr-6 text-right 
+                                 font-bold text-gray-600">Harga</label>
+        <input type="text"  name="harga" placeholder="...." 
+               class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400 
+                      text-gray-600 placeholder-gray-400
+                      outline-none" value=<?php echo $harga;?>>
+      </div>
+
+      <div class="text-right">
+	  <input type="hidden" name="kodecucian" value=<?php echo $_GET['kodecucian'];?>>
+      <a
+            href="../../login/homepage.php"
+            type="submit"
+            class="inline-block px-3 py-3 bg-green-600 text-white uppercase rounded shadow-md hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg"
+            data-mdb-ripple="true"
+            data-mdb-ripple-color="light">
+            Go to homepage
+          </a>
+		  <input name="update" type="submit" class="py-3 px-2 bg-green-400 hover:bg-green-700 text-white font-bold" value="update">
+	  </div>
+  </div>
+		</div>
+	</form>
 </body>
 </html>

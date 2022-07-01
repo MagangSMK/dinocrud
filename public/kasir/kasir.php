@@ -30,7 +30,7 @@ include_once("../../config/config.php");
 <div class="sidenav-header bg-blue-800">
   <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
   <a class="navbar-brand m-0" href="../../login/homepage.php" >
-    <span class="ms-1 font-weight-bold text-white">Home Page</span>
+    <span class="ms-1 font-weight-bold text-white">ECOMMERCE | HOME</span>
   </a>
 </div>
 
@@ -95,7 +95,7 @@ include_once("../../config/config.php");
 <a
             href="add.php"
             type="submit"
-            class="inline-block px-4 py-3 bg-green-600 text-white uppercase rounded shadow-md hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg"
+            class="inline-block px-4 py-3 bg-blue-600 text-white uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg"
             data-mdb-ripple="true"
             data-mdb-ripple-color="light">
             Tambah Kasir
@@ -106,7 +106,7 @@ include_once("../../config/config.php");
     <input
             type="submit"
             value="Cari"
-            class="inline-block px-3 py-2 bg-slate-600 text-white uppercase rounded shadow-md hover:bg-slate-700 hover:shadow-lg focus:bg-slate-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-slate-800 active:shadow-lg"
+            class="inline-block px-3 py-2 bg-blue-600 text-white uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg"
             data-mdb-ripple="true"
             data-mdb-ripple-color="light">
 </form>
@@ -121,7 +121,7 @@ if(isset($_GET['cari'])){
     <div class="py-4 inline-block min-w-full sm:px-6 lg:px-8">
       <div class="overflow-hidden">
     <table class="min-w-full text-center">
-    <thead class="border-b bg-gray-800"">
+    <thead class="border-b bg-blue-800">
 
     <tr>
      <th scope="col" class="text-sm font-medium text-white px-1 py-2">Id Kasir</th> 

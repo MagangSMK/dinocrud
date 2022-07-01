@@ -32,7 +32,7 @@ include_once("../config/config.php");
 <div class="sidenav-header bg-blue-800">
   <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
   <a class="navbar-brand m-0" href="homepage.php" >
-    <span class="ms-1 font-weight-bold text-white">Home Page</span>
+    <span class="ms-1 font-weight-bold text-white">ECOMMERCE | HOME</span>
   </a>
 </div>
 
@@ -100,10 +100,11 @@ include_once("../config/config.php");
 session_start();
 
 ?>
-    <p class="text-bold">Selamat Datang</p>
-    <H1>
-    Admin
-  </h1>
+    <h1>
+      Selamat Datang <span style="color:#6e85ad;">Admin!</span>
+    </h1>
+    <h2>My Dashboard</h2>
+    <h3>Apa yang ingin anda lakukan hari ini!</h3>
   
 </body>
 </html>
