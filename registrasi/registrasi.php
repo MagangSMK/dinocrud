@@ -24,7 +24,7 @@
                 <input class="border py-2 px-3 text-grey-800" type="text" name="username" id="username">
             </div>
             <div class="flex flex-col mb-4">
-                <label class="mb-2 font-bold text-lg text-gray-900" for="sandi">Password</label>
+                <label class="mb-2 font-bold text-lg text-gray-900" for="password">Password</label>
                 <input class="border py-2 px-3 text-grey-800" type="password" name="password" id="password">
             </div>
             <button class="block bg-blue-600 hover:bg-blue-700 text-white uppercase text-lg mx-auto p-4 rounded" type="submit">Create Account</button>
