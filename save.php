@@ -93,16 +93,16 @@ include_once("../config/config.php");
   
 </aside>
 <main class="main-content border-radius-lg ">
-
+<div class="py-3">
 
 <a
             href="../public/kasir/add.php"
             type="submit"
-            class="inline-block px-4 py-3 bg-blue-600 text-white uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg"
+            class="inline-block px-1 py-2 bg-blue-600 text-white uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg"
             data-mdb-ripple="true"
             data-mdb-ripple-color="light">
             Tambah Kasir
-          </a>
+          </a></div>
 <form method="get">
     <label>Cari :</label>
     <input type="text" name="cari">
